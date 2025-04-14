@@ -49,7 +49,7 @@ function addBook(e) {
     const releaseDate = document.querySelector("#releaseDate").value.trim();
     const category = document.querySelector("#category").value.trim();
 
-    // Ẩn tất cả lỗi trước
+    // Kiểm tra và hiển thị thông báo lỗi
     document.querySelectorAll(".error-message").forEach(el => el.style.display = "none");
 
     let hasError = false;
@@ -71,8 +71,7 @@ function addBook(e) {
         hasError = true;
     }
 
-    if (hasError) return; // Không thêm nếu có lỗi
-
+    if (hasError) return;
     if (editingIndex == -1) {
         bookList.push({ name, author, releaseDate, category });
     } else {
@@ -154,5 +153,3 @@ function renderFilteredData(filteredList) {
 
 renderData();
 searchInput.addEventListener("input", searchBooks);
-
-
